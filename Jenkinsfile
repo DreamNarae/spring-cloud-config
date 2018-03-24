@@ -11,7 +11,7 @@ node {
 
     stage('Test') {
         try{
-            sh './gradlew check'
+            bat './gradlew check'
         } finally {
             junit 'build/test-results/**/*.xml'
         }
