@@ -18,7 +18,7 @@ node {
     }
 
     stage('Build') {
-        sh './gradlew build -x test'
+        bat './gradlew build -x test'
 
     }
 
@@ -40,6 +40,6 @@ node {
     }
 
     stage('Kubernetes Deploy') {
-        sh 'kubectl apply --namespace=development -f deployment.yaml'
+        bat 'kubectl apply --namespace=development -f deployment.yaml'
     }
 }
