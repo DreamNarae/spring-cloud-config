@@ -11,14 +11,14 @@ node {
 
     stage('Test') {
         try{
-            bat './gradlew check'
+            sh './gradlew check'
         } finally {
             junit 'build/test-results/**/*.xml'
         }
     }
 
     stage('Build') {
-        bat './gradlew build -x test'
+        sh './gradlew build -x test'
 
     }
 
@@ -40,6 +40,6 @@ node {
     }
 
     stage('Kubernetes Deploy') {
-        bat 'kubectl apply --namespace=development -f deployment.yaml'
+        sh 'kubectl apply --namespace=development -f deployment.yaml'
     }
 }
